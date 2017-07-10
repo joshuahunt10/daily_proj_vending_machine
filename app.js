@@ -37,3 +37,5 @@ app.use(apiRoutes);
 app.listen(3000, function(){
   console.log('You bought a Snickers');
 })
+
+module.exports = app;

@@ -15,6 +15,10 @@ const Machine = require("../models/machine")
 // GET /api/vendor/money - get a total amount of money accepted by the machine
 
 
+router.post('/api/customer/items/:itemId/purchases', function(req, res){
+
+})
+
 
 router.get('/api/customer/items', function(req, res){
   Machine.find()
@@ -23,7 +27,7 @@ router.get('/api/customer/items', function(req, res){
   })
 })
 
-router.get('/api/vender/purchases', function(req, res){
+router.get('/api/vendor/purchases', function(req, res){
   Machine.find({}, {'log.description': 1, 'log.time':1})
   .then(function(purchases){
     res.json(purchases)
@@ -36,5 +40,7 @@ router.get('/api/vendor/money', function(req, res){
     res.json(money)
   })
 })
+
+
 
 module.exports = router;

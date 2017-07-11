@@ -12,7 +12,11 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost:27017/vendingMachineDB');
+// mongoose.connect('mongodb://localhost:27017/vendingMachineDB');
+
+const nodeEnv = process.env.NODE_ENV || "development";
+const config = require("./config")[nodeEnv]
+mongoose.connect(config.mongoUrl)
 
 
 // const Machine = require("./models/machine")
